@@ -1,0 +1,143 @@
+<div class="vertical-menu">
+    <a href="/dashboard" class="menu-item active">Dashboard</a>
+    <a href="/data-record" class="menu-item">Data Record</a>
+</div>
+
+<div class="container-fluid">
+    <div class="dashboard-container">
+        <!-- Crane Header -->
+        <div class="crane-header">
+            CRANE - Hoist 1
+        </div>
+        
+        <div class="row">
+            <!-- Crane Information Section -->
+            <div class="crane-info">
+                <div class="crane-title title">Crane Information</div>
+                <div class="crane-details">
+                    <div class="info-row dark">
+                        <span class="label">Name:</span>
+                        <span class="value">Crane 2 Hoist</span>
+                    </div>
+                    <div class="info-row light">
+                        <span class="label">Capacity:</span>
+                        <span class="value">10 Ton</span>
+                    </div>
+                    <div class="info-row dark">
+                        <span class="label">Location:</span>
+                        <span class="value">Welding Fact</span>
+                    </div>
+                    <div class="info-row light">
+                        <span class="label">Customer:</span>
+                        <span class="value">[Customer Name]</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status Section -->
+            <div class="status-section">
+                <div class="status-box-on">
+                    <div class="status-title title">Status</div>
+                    <div class="status-value">{{ statusOnValue }}</div>
+                </div>
+                <div class="anti-sway-box">
+                    <div class="status-title title">Anti Sway</div>
+                    <div class="status-value">{{ antiSwayValue }}</div>
+                </div>
+            </div>
+
+            <!-- Total ON Time Info -->
+            <div class="total-on-info">
+                <div class="total-title title">Total ON time</div>
+                <div class="total-box-ontime">
+                    <div class="total-value" style="font-size: 54px;">{{ totalOnTime }}</div>
+                </div>
+            </div>
+
+            <!-- Braking ON Info -->
+            <div class="braking-box-on-info">
+                <div class="total-title title">Braking ON</div>
+                <div class="braking-box-on">
+                    <div class="total-value" style="font-size: 54px;">{{ brakingOnValue }}</div>
+                </div>
+            </div>
+
+            <!-- Total Running Time Section -->
+            <div class="total-on-time-section">
+                <div class="total-box">
+                    <div class="total-title title">Total Running time / month (h)</div>
+                    <div class="time-row-container">
+                        <div class="time-row dark">
+                            <span class="label">Hoist:</span>
+                            <span class="value">{{ hoistTime }}</span>
+                        </div>
+                        <div class="time-row light">
+                            <span class="label">Trolley:</span>
+                            <span class="value">{{ trolleyTime }}</span>
+                        </div>
+                        <div class="time-row dark">
+                            <span class="label">Long Travel:</span>
+                            <span class="value">{{ longTravelTime }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Graphs Section -->
+            <div class="graphs">
+                <div class="graph title">
+                    <h2>Hoist Loading Status (h)</h2>
+                    <canvas id="hoistLoadingChart"></canvas>
+                </div>
+            </div>
+
+            <div class="graphs" style="margin-left: 10px;">
+                <div class="graph title">
+                    <h2>Crane Operation Status (h)</h2>
+                    <canvas id="craneOperationChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Additional Stats Section -->
+            <div class="additional-stats">
+                <div class="total-overload-time" style="margin-left: -10px; width: 105%;">
+                    <h3 class="title">Total Overload Time (h)</h3>
+                    <div class="time-row-container">
+                        <div class="time-row dark">
+                            <span class="label">Hoist:</span>
+                            <span class="value">{{ hoistOverload }}</span>
+                        </div>
+                        <div class="time-row light">
+                            <span class="label">Trolley:</span>
+                            <span class="value">{{ trolleyOverload }}</span>
+                        </div>
+                        <div class="time-row dark">
+                            <span class="label">Long Travel:</span>
+                            <span class="value">{{ longTravelOverload }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="total-push-pulse" style="margin-left: -10px; width: 105%;">
+                    <h3 class="title">Total Push Pulse (times)</h3>
+                    <div class="time-row-container">
+                        <div class="time-row dark">
+                            <span class="label">Hoist 1:</span>
+                            <span class="value">{{ hoistPulse }}</span>
+                        </div>
+                        <div class="time-row light">
+                            <span class="label">Trolley 1:</span>
+                            <span class="value">{{ trolleyPulse }}</span>
+                        </div>
+                        <div class="time-row dark">
+                            <span class="label">Long Travel 1:</span>
+                            <span class="value">{{ longTravelPulse }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
