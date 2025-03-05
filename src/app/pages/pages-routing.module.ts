@@ -6,7 +6,6 @@ import { DashboardComponent } from './dashboards/dashboard.component'
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard' },
   { path: 'dashboard', canActivate: [AuthGuard], loadChildren: () => import('./dashboards/dashboard.module').then((m) => m.DashboardModule)},
-  { path: 'home', canActivate: [AuthGuard], loadChildren: () => import('./home/home.module').then((m) => m.HomeModule)},
   { path: 'changepassword', canActivate: [AuthGuard], loadChildren: () => import('./changepass/changepass.module').then((m) => m.ChangePassModule),},
 ];
 
