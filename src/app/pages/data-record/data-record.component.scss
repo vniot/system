@@ -5,21 +5,37 @@
   font-family: Arial, sans-serif;
   min-height: 100vh;
   padding: 20px;
-  overflow: hidden;
-  margin-left: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 2;
-  margin-top: -10px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #1e2a32;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
 }
 
 .data-record-container {
   width: 100%;
-  flex: 1;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+  min-height: 70vh;
 }
 
 // Crane Header
@@ -41,23 +57,26 @@
 // Row Layout
 .row {
   display: flex;
-  flex-direction: row;
-  gap: 20px;
   width: 100%;
+  gap: 20px;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  min-height: 70vh;
 }
 
 // Table Containers
 .operation-data,
 .error-history {
-  flex: 1;
+  width: calc(50% - 10px);
   border: 2px solid #00CCFF;
   padding: 22px;
   background-color: #2a3942;
   display: flex;
   flex-direction: column;
-  min-width: 0; // Prevent flex items from overflowing
+  box-sizing: border-box;
+  overflow: hidden;
+  height: 100%;
 }
 
 // Table Title
@@ -96,6 +115,13 @@ table {
 
   tr:nth-child(even) {
     background-color: #2f3b44;
+  }
+
+  thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #1e2a32;
   }
 }
 
@@ -157,15 +183,18 @@ table {
 
 // Responsive Design
 @media screen and (max-width: 1400px) {
+  .container-fluid {
+    padding: 15px;
+  }
+
   .row {
-    flex-direction: row;
     gap: 15px;
   }
 
   .operation-data,
   .error-history {
-    flex: 1;
-    min-width: 0;
+    width: calc(50% - 7.5px);
+    padding: 15px;
   }
 
   table {
@@ -177,11 +206,18 @@ table {
   }
 }
 
-// Remove old zoom behavior and replace with better scaling
+// Scale behavior
 @media screen and (min-width: 768px) {
   .container-fluid {
     transform: scale(0.8);
     transform-origin: top left;
+    width: 125%;
+    min-height: 125vh;
+  }
+  
+  .data-record-container,
+  .row {
+    min-height: calc(70vh * 1.25);
   }
 }
 
@@ -189,6 +225,13 @@ table {
   .container-fluid {
     transform: scale(0.9);
     transform-origin: top left;
+    width: 111%;
+    min-height: 111vh;
+  }
+  
+  .data-record-container,
+  .row {
+    min-height: calc(70vh * 1.11);
   }
 }
 
@@ -196,6 +239,13 @@ table {
   .container-fluid {
     transform: scale(1);
     transform-origin: top left;
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  .data-record-container,
+  .row {
+    min-height: 70vh;
   }
 }
 
