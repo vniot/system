@@ -1,0 +1,115 @@
+<!-- Left Menu -->
+<div class="vertical-menu">
+  <a href="/dashboard" class="menu-item">Dashboard</a>
+  <a href="/data-record" class="menu-item active">Data Record</a>
+</div>
+
+<div class="container-fluid">
+  <div class="data-record-container">
+    <!-- Crane Header -->
+    <div class="crane-header">
+      CRANE - Hoist 1
+    </div>
+
+    <div class="row">
+      <!-- Operation Data Table -->
+      <div class="operation-data">
+        <div class="table-title">Operation Data</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Content</th>
+              <th>Hoist</th>
+              <th>L.Travel</th>
+              <th>Trolley</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Runing time Total (h)</td>
+              <td>{{runningTimeTotal.hoist}}</td>
+              <td>{{runningTimeTotal.lTravel}}</td>
+              <td>{{runningTimeTotal.trolley}}</td>
+            </tr>
+            <tr>
+              <td>Maintanance due date (h)</td>
+              <td>{{maintenanceDueDate.hoist}}</td>
+              <td>{{maintenanceDueDate.lTravel}}</td>
+              <td>{{maintenanceDueDate.trolley}}</td>
+            </tr>
+            <tr>
+              <td>Push Pulse count</td>
+              <td>{{pushPulseCount.hoist}}</td>
+              <td>{{pushPulseCount.lTravel}}</td>
+              <td>{{pushPulseCount.trolley}}</td>
+            </tr>
+            <tr>
+              <td>Backtracking count</td>
+              <td>{{backtrackingCount.hoist}}</td>
+              <td>{{backtrackingCount.lTravel}}</td>
+              <td>{{backtrackingCount.trolley}}</td>
+            </tr>
+            <tr>
+              <td>Reversal count</td>
+              <td>{{reversalCount.hoist}}</td>
+              <td>{{reversalCount.lTravel}}</td>
+              <td>{{reversalCount.trolley}}</td>
+            </tr>
+            <tr>
+              <td>Alarm Count</td>
+              <td>{{alarmCount.hoist}}</td>
+              <td>{{alarmCount.lTravel}}</td>
+              <td>{{alarmCount.trolley}}</td>
+            </tr>
+            <tr>
+              <td>Braking lifetime remain</td>
+              <td>{{brakingLifetimeRemain.hoist}}</td>
+              <td>{{brakingLifetimeRemain.lTravel}}</td>
+              <td>{{brakingLifetimeRemain.trolley}}</td>
+            </tr>
+            <tr>
+              <td>Braking time total</td>
+              <td>{{brakingTimeTotal.hoist}}</td>
+              <td>{{brakingTimeTotal.lTravel}}</td>
+              <td>{{brakingTimeTotal.trolley}}</td>
+            </tr>
+            <tr>
+              <td>Braking replacement count</td>
+              <td>{{brakingReplacementCount.hoist}}</td>
+              <td>{{brakingReplacementCount.lTravel}}</td>
+              <td>{{brakingReplacementCount.trolley}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="single-button">
+          <button class="action-button" (click)="resetData()">Reset data</button>
+        </div>
+      </div>
+
+      <!-- Error History Table -->
+      <div class="error-history">
+        <div class="table-title">Error History</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Event</th>
+              <th>Content</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let error of errorHistory">
+              <td>{{error.date}}</td>
+              <td>{{error.event}}</td>
+              <td>{{error.content}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="button-group">
+          <button class="action-button" (click)="clearHistory()">Clear history</button>
+          <button class="action-button" (click)="exportFile()">Export file</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

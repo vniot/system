@@ -1,0 +1,184 @@
+// Container styles
+.container-fluid {
+  background-color: #1e2a32;
+  color: white;
+  font-family: Arial, sans-serif;
+  min-height: 888px;
+  height: auto;
+  padding: 20px;
+  overflow: hidden;
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  margin-top: -10px;
+}
+
+.data-record-container {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+// Crane Header
+.crane-header {
+  background-color: #e67e22;
+  color: white;
+  font-size: 45px;
+  font-weight: bold;
+  padding: 15px 30px;
+  width: 100%;
+  margin-bottom: 15px;
+  flex-shrink: 0;
+  margin-left: -12px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+// Row Layout
+.row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+}
+
+// Table Containers
+.operation-data,
+.error-history {
+  border: 2px solid #00CCFF;
+  padding: 22px;
+  background-color: #2a3942;
+  height: auto;
+  min-height: 418px;
+  width: 50%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+// Table Title
+.table-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 22px;
+  color: white;
+  text-align: center;
+}
+
+// Table Styles
+table {
+  width: 100%;
+  border-collapse: collapse;
+  flex: 1;
+  margin-bottom: 0;
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid rgba(46, 204, 113, 0.2);
+    font-size: 24px;
+    line-height: 1.5;
+  }
+
+  th {
+    background-color: #1e2a32;
+    color: #ffed4a;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #1e2a32;
+  }
+
+  tr:nth-child(even) {
+    background-color: #2f3b44;
+  }
+}
+
+// Button Styles
+.action-button {
+  background-color: #ffd700;
+  color: #000;
+  border: none;
+  padding: 15px 30px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #ffed4a;
+  }
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 22px;
+}
+
+.single-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+// Left Menu Styles
+.vertical-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 240px;
+  height: 100%;
+  background: #2a3942;
+  border-right: 2px solid #00CCFF;
+  z-index: 1000;
+  padding-top: 80px;
+
+  .menu-item {
+    padding: 18px 30px;
+    color: white;
+    display: block;
+    text-decoration: none;
+    font-size: 24px;
+
+    &:hover, &.active {
+      background-color: #1e2a32;
+      color: #00CCFF;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 1400px) {
+  .container-fluid {
+    margin-left: 0;
+    height: auto;
+    overflow: auto;
+    padding: 22px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .operation-data,
+  .error-history {
+    width: 100%;
+  }
+}
+
+// Table Cell Alignment
+td:not(:first-child) {
+  text-align: center;
+} 
