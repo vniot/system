@@ -173,12 +173,48 @@ table {
     display: block;
     text-decoration: none;
     font-size: 24px;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
 
-    &:hover, &.active {
+    &:hover:not(.active) {
+      background-color: #1e2a32;
+      color: #00CCFF;
+    }
+
+    // Active states for Dashboard and Data Record
+    &.active,
+    &.selected,
+    &[aria-current="page"],
+    &.router-link-active,
+    &.router-link-exact-active {
+      &[routerLink="/dashboard"],
+      &[routerLink="dashboard"],
+      &[href*="dashboard"],
+      &[routerLink="/data-record"],
+      &[routerLink="data-record"],
+      &[href*="data-record"] {
+        background-color: #e67e22;
+        color: white;
+        border-left: 4px solid #ffd700;
+      }
+    }
+
+    // Active state for other menu items
+    &.active:not([routerLink="/dashboard"]):not([routerLink="/data-record"]):not([href*="dashboard"]):not([href*="data-record"]) {
       background-color: #1e2a32;
       color: #00CCFF;
     }
   }
+}
+
+// Additional active states for Dashboard and Data Record links
+a[routerLink="/dashboard"].active,
+.dashboard-link.active,
+a[routerLink="/data-record"].active,
+.data-record-link.active {
+  background-color: #e67e22 !important;
+  color: white !important;
+  border-left: 4px solid #ffd700 !important;
 }
 
 // Responsive Design
