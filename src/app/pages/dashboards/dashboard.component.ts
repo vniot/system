@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
   craneOperationChart!: ChartJS<'pie', number[], string>;
 
   // 🟢 Khai báo biến mới từ yêu cầu của bạn
-  statusOnValue: string = "ON";
+  statusOnValue: string = "OFF";
   antiSwayValue: string = "ON";
   brakingOnValue: number = 699;
   totalOnTime: number = 1860;
@@ -138,7 +138,9 @@ export class DashboardComponent implements OnInit {
         });
   
         // 🔹 Cập nhật các giá trị khác (ngoài dataDashboard)
-        this.statusOnValue = telemetryData.statusOnValue?.[0]?.["1"] || this.statusOnValue;
+        if (telemetryData.run1?.[0]?.["1"] ===1||telemetryData.run2?.[0]?.["1"] ===1 ||telemetryData.run3?.[0]?.["1"] ===1 ) {
+          this.statusOnValue = "ON";
+        }        
         this.antiSwayValue = telemetryData.antiSwayValue?.[0]?.["1"] || this.antiSwayValue;
         this.brakingOnValue = telemetryData.backtrackingCount?.[0]?.["1"] ? Number(telemetryData.backtrackingCount[0]["1"]) : this.dataDashboard.backtrackingCount;
         this.totalOnTime = telemetryData.totalOnTime?.[0]?.["1"] ? Number(telemetryData.totalOnTime[0]["1"]) : this.totalOnTime;

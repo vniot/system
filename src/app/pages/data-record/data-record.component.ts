@@ -167,13 +167,13 @@ export class DataRecordComponent implements OnInit {
         
 
         // Cập nhật Push Pulse count
-        if (telemetryData.pushPulseCount) {
+       
           this.pushPulseCount = {
-            hoist: Number(telemetryData.pushPulseCount.hoist?.[0]?.["1"]) || this.pushPulseCount.hoist,
-            lTravel: Number(telemetryData.pushPulseCount.lTravel?.[0]?.["1"]) || this.pushPulseCount.lTravel,
-            trolley: Number(telemetryData.pushPulseCount.trolley?.[0]?.["1"]) || this.pushPulseCount.trolley
+            hoist: Number(telemetryData.pushpulseCount1?.[0]?.["1"]) || this.pushPulseCount.hoist,
+            lTravel: Number(telemetryData.pushpulseCount2?.[0]?.["1"]) || this.pushPulseCount.lTravel,
+            trolley: Number(telemetryData.pushpulseCount3?.[0]?.["1"]) || this.pushPulseCount.trolley
           };
-        }
+        
 
         // Cập nhật Backtracking count
         if (telemetryData.backtrackingCount) {
@@ -185,22 +185,22 @@ export class DataRecordComponent implements OnInit {
         }
 
         // Cập nhật Reversal count
-        if (telemetryData.reversalCount) {
+        
           this.reversalCount = {
-            hoist: Number(telemetryData.reversalCount.hoist?.[0]?.["1"]) || this.reversalCount.hoist,
-            lTravel: Number(telemetryData.reversalCount.lTravel?.[0]?.["1"]) || this.reversalCount.lTravel,
-            trolley: Number(telemetryData.reversalCount.trolley?.[0]?.["1"]) || this.reversalCount.trolley
+            hoist: Number(telemetryData.reversalCount1?.[0]?.["1"]) || this.reversalCount.hoist,
+            lTravel: Number(telemetryData.reversalCount2?.[0]?.["1"]) || this.reversalCount.lTravel,
+            trolley: Number(telemetryData.reversalCount3?.[0]?.["1"]) || this.reversalCount.trolley
           };
-        }
+        
 
         // Cập nhật Alarm Count
-        if (telemetryData.alarmCount) {
+      
           this.alarmCount = {
-            hoist: Number(telemetryData.alarmCount.hoist?.[0]?.["1"]) || this.alarmCount.hoist,
-            lTravel: Number(telemetryData.alarmCount.lTravel?.[0]?.["1"]) || this.alarmCount.lTravel,
-            trolley: Number(telemetryData.alarmCount.trolley?.[0]?.["1"]) || this.alarmCount.trolley
+            hoist: Number(telemetryData.alarmCount1?.[0]?.["1"]) || this.alarmCount.hoist,
+            lTravel: Number(telemetryData.alarmCount2?.[0]?.["1"]) || this.alarmCount.lTravel,
+            trolley: Number(telemetryData.alarmCount3?.[0]?.["1"]) || this.alarmCount.trolley
           };
-        }
+        
 
         // Cập nhật Braking lifetime remain
         if (telemetryData.brakingLifetimeRemain) {
@@ -212,22 +212,22 @@ export class DataRecordComponent implements OnInit {
         }
 
         // Cập nhật Braking time total
-        if (telemetryData.brakingTimeTotal) {
+        
           this.brakingTimeTotal = {
-            hoist: Number(telemetryData.brakingTimeTotal.hoist?.[0]?.["1"]) || this.brakingTimeTotal.hoist,
-            lTravel: Number(telemetryData.brakingTimeTotal.lTravel?.[0]?.["1"]) || this.brakingTimeTotal.lTravel,
-            trolley: Number(telemetryData.brakingTimeTotal.trolley?.[0]?.["1"]) || this.brakingTimeTotal.trolley
+            hoist: Number(telemetryData.brakeTime1?.[0]?.["1"]) || this.brakingTimeTotal.hoist,
+            lTravel: Number(telemetryData.brakeTime2?.[0]?.["1"]) || this.brakingTimeTotal.lTravel,
+            trolley: Number(telemetryData.brakeTime3?.[0]?.["1"]) || this.brakingTimeTotal.trolley
           };
-        }
+        
 
         // Cập nhật Braking replacement count
-        if (telemetryData.brakingReplacementCount) {
+       
           this.brakingReplacementCount = {
-            hoist: Number(telemetryData.brakingReplacementCount.hoist?.[0]?.["1"]) || this.brakingReplacementCount.hoist,
-            lTravel: Number(telemetryData.brakingReplacementCount.lTravel?.[0]?.["1"]) || this.brakingReplacementCount.lTravel,
-            trolley: Number(telemetryData.brakingReplacementCount.trolley?.[0]?.["1"]) || this.brakingReplacementCount.trolley
+            hoist: Number(1000-telemetryData.brakeTime1?.[0]?.["1"]) || this.brakingReplacementCount.hoist,
+            lTravel: Number(1000-telemetryData.brakeTime2?.[0]?.["1"]) || this.brakingReplacementCount.lTravel,
+            trolley: Number(1000-telemetryData.brakeTime3?.[0]?.["1"]) || this.brakingReplacementCount.trolley
           };
-        }
+        
 
         // Cập nhật Error History nếu có
         if (telemetryData.errorHistory && Array.isArray(telemetryData.errorHistory)) {
