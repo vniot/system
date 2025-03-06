@@ -3,8 +3,7 @@
   background-color: #1e2a32;
   color: white;
   font-family: Arial, sans-serif;
-  min-height: 888px;
-  height: auto;
+  min-height: 100vh;
   padding: 20px;
   overflow: hidden;
   margin-left: 0;
@@ -17,11 +16,10 @@
 
 .data-record-container {
   width: 100%;
-  height: 100%;
+  flex: 1;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 15px;
 }
 
 // Crane Header
@@ -43,23 +41,23 @@
 // Row Layout
 .row {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  gap: 20px;
   width: 100%;
-  gap: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 // Table Containers
 .operation-data,
 .error-history {
+  flex: 1;
   border: 2px solid #00CCFF;
   padding: 22px;
   background-color: #2a3942;
-  height: auto;
-  min-height: 418px;
-  width: 50%;
-  flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 0; // Prevent flex items from overflowing
 }
 
 // Table Title
@@ -75,15 +73,14 @@
 table {
   width: 100%;
   border-collapse: collapse;
-  flex: 1;
-  margin-bottom: 0;
+  margin: 0;
+  font-size: clamp(14px, 1.5vw, 24px);
   
   th, td {
-    padding: 12px;
+    padding: 8px;
     text-align: left;
     border: 1px solid rgba(46, 204, 113, 0.2);
-    font-size: 24px;
-    line-height: 1.5;
+    line-height: 1.3;
   }
 
   th {
@@ -159,22 +156,46 @@ table {
 }
 
 // Responsive Design
-@media (max-width: 1400px) {
-  .container-fluid {
-    margin-left: 0;
-    height: auto;
-    overflow: auto;
-    padding: 22px;
-  }
-
+@media screen and (max-width: 1400px) {
   .row {
-    flex-direction: column;
-    gap: 22px;
+    flex-direction: row;
+    gap: 15px;
   }
 
   .operation-data,
   .error-history {
-    width: 100%;
+    flex: 1;
+    min-width: 0;
+  }
+
+  table {
+    font-size: clamp(12px, 1.2vw, 18px);
+  }
+
+  th, td {
+    padding: 6px;
+  }
+}
+
+// Remove old zoom behavior and replace with better scaling
+@media screen and (min-width: 768px) {
+  .container-fluid {
+    transform: scale(0.8);
+    transform-origin: top left;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container-fluid {
+    transform: scale(0.9);
+    transform-origin: top left;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container-fluid {
+    transform: scale(1);
+    transform-origin: top left;
   }
 }
 
